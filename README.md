@@ -1,15 +1,3 @@
-<style>
-    body {
-      margin: 2em auto;
-      width: 90%;
-      max-width: 30em;
-      font-family: Verdana, Helvetica, sans-serif;
-      }
-    p {
-      font-family: Georgia, "Times New Roman", serif;
-      }
-</style>
-
 # SommelAI
 
 
