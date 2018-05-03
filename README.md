@@ -1,4 +1,4 @@
-# Python: Getting Started
+# Wine 
 
 A barebones Django app, which can easily be deployed to Heroku.
 
