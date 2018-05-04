@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Python Getting Started on Heroku</title>
+<title>SommelAI</title>
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
   <style type="text/css">
     .jumbotron {
-        background: #532f8c;
+        //background: #532f8c;
         color: white;
-        padding-bottom: 80px
+        padding-bottom: 80px;
+        //background-image: url("https://img.riedel.com/mgnl/h_800,q_80/dam/pixelart/header-start/03_header_big_3840x2160.jpg");
+        background-image: url("https://c.pxhere.com/photos/a8/af/tuscany_vineyard_landscape_italy_hill_field_farm_italian-1384670.jpg!d");
+        background-attachment: fixed;
+        background-size: cover;
     }
     .jumbotron .btn-primary {
         background: #845ac7;
@@ -19,7 +25,7 @@
         background: #7646c1
     }
     .jumbotron p {
-        color: #d9ccee;
+        color: #FFFFFF;
         max-width: 75%;
         margin: 1em auto 2em
     }
@@ -41,9 +47,11 @@
     }
 
 
+
   </style>
 </head>
 <body>
+<!--
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
@@ -76,7 +84,7 @@
     </ul>
   </div>
 </nav>
-
+-->
 {% block content %}{% endblock %}
 
 </body>

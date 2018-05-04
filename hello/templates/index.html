@@ -8,17 +8,22 @@
     <a href="/" class="lang-logo">
       <img style="-webkit-filter: invert(1); filter: invert(1);" src="https://cdn2.iconfinder.com/data/icons/wine-i-love-you/500/wine_glass-512.png">
     </a>
-    <h1>Wine Exploration</h1>
+      <h1>
+        <span style="font-family:cursive;margin:0px;">Sommel</span><span style="font-family:Verdana;margin:0px;"><b>AI</b></span>
+    </h1>
+      <!--<h1 style="font-family:times;">Sommel<b><i>AI</i></b></h1>-->
     <p>Wine is viewed as a sophisticated beverage, only to be understood by the wine connoisseurs of the upper class. When ordering wine at an upscale restaurant, it is not uncommon to ask for recommendations from the waiter. We are interested in making the understanding of wine more accessible to the general public.
 </p>
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
+    Explore the map below to see which regions have the best quality or the highest prices.
   </div>
   <hr>
   <div class="row">
+      <div id="wine_regions" style="height: 500px;"></div>
+      <!--
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
       <ul>
@@ -50,9 +55,32 @@
       </ul>
     </div>
   </div> <!-- row -->
+      <!--
    <div class="alert alert-info text-center" role="alert">
     Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
+  -->
+      <hr>
 </div>
+
+
+
+<script>
+var map = L.map('wine_regions', {
+    center: [36, -46],
+    zoom: 3,
+    minZoom: 2,
+    maxZoom: 12
+});
+
+L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
+    attribution: '&copy; <a href="http://maps.stamen.com/#watercolor/">Stamen Maps</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+//L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//}).addTo(map);
+
+</script>
 
 {% endblock %}
