@@ -11,13 +11,10 @@
       <h1>
         <span style="font-family:cursive;margin:0px;">Sommel</span><span style="font-family:Verdana;margin:0px;"><b>AI</b></span>
     </h1>
-<<<<<<< HEAD
       <!--<h1 style="font-family:times;">Sommel<b><i>AI</i></b></h1>-->
     <p>Wine is seen as a sophisticated beverage, only to be understood by wine connoisseurs of the upper class.
       We are interested in making the understanding of wine more accessible to the general public.
-=======
-    <p>Wine is viewed as a sophisticated beverage, only to be understood by the wine connoisseurs of the upper class. When ordering wine at an upscale restaurant, it is not uncommon to ask for recommendations from the waiter. We are interested in making the understanding of wine more accessible to the general public.
->>>>>>> 630f8b8965ae26908b7c1537411563133f4e62c0
+
 </p>
   </div>
 </div>
@@ -76,6 +73,8 @@ var map = L.map('wine_regions', {
 L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
     attribution: '&copy; <a href="http://maps.stamen.com/#watercolor/">Stamen Maps</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png').addTo(map);
 
 //L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   //  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
