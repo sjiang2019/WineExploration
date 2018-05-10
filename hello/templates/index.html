@@ -18,6 +18,7 @@
 </p>
   </div>
 </div>
+
 <div class="container">
     <hr>
   <div class="row">
@@ -26,7 +27,12 @@
     <div class="col-md-6">
         <h3><span class="glyphicon glyphicon-th-list"></span> Dataset</h3>
       <p>
-          The <a href="https://www.kaggle.com/zynicide/wine-reviews/data">Kaggle Wine Reviews dataset</a> is composed of ~150,000 unique wine reviews and contains the following fields: country, description, designation, points, price, province, region_1, region_2, variety, and winery. Country, province, region_1, and region_2 refer to various degrees of specificity regarding the origin of the wine. Winery refers to the winery that produced the wine and designation refers to the vineyard within the winery from which the grapes were picked. The description field includes a description from a sommelier about the wine’s taste, smell, look, feel, etc. Finally, the variety field refers to the type of grape used to produce the wine. Using the aforementioned features, we hope to predict points, which is a proxy for quality, and price.
+          The <a href="https://www.kaggle.com/zynicide/wine-reviews/data">Kaggle Wine Reviews dataset</a>
+        is composed of ~150,000 unique wine reviews and contains the following fields: country, description,
+        designation, points, price, province, region_1, region_2, variety, and winery. Country, province, region_1,
+        and region_2 refer to various degrees of specificity regarding the origin of the wine. Winery refers to the
+        winery that produced the wine and designation refers to the vineyard within the winery from which the grapes
+        were picked. The description field includes a description from a sommelier about the wine’s taste, smell, look, feel, etc. Finally, the variety field refers to the type of grape used to produce the wine. Using the aforementioned features, we hope to predict points, which is a proxy for quality, and price.
       </p>
       <h3><span class="glyphicon glyphicon-question-sign"></span> Our Questions</h3>
       <ul>
@@ -42,8 +48,20 @@
             <b><a href="http://www.aclweb.org/anthology/P16-2050">Very quaffable and great fun: Applying NLP to wine reviews</a>, Hendrickx et al.</b>
         </p>
       <p>
-          Using textual reviews gathered from <a href="http://www.winemag.com/">WineMag</a>, Hendrickx et al. use lexical and semantic information to predict color, grape variety, price, and country of origin of various wines. Due to the fact that reviewers use similar descriptors, such as ‘fruity’, ‘notes of blackberry’, and ‘elegant’, wine reviews are consistent enough to draw conclusions about the wine itself. The researchers processed the textual data by combining a bag-of-words model with 100 topics generated from Latent Dirichlet Allocation and 100 clusters based on word embeddings from <a href="https://code.google.com/archive/p/word2vec/">Word2Vec</a>. The experiment resulted in high F-scores for each predicted category. Price was predicted categorically using ‘expensive’ and ‘cheap’ as the categories; however, the researchers mention that in the future it would be better to predict price as a regression task. Thus, we are hoping to extend their work by predicting price and quality as a regression task and by addressing the aforementioned questions.
+          Using textual reviews gathered from <a href="http://www.winemag.com/">WineMag</a>, Hendrickx et al. use
+        lexical and semantic information to predict color, grape variety, price, and country of origin of various wines.
+        Due to the fact that reviewers use similar descriptors, such as ‘fruity’, ‘notes of blackberry’, and ‘elegant’,
+        wine reviews are consistent enough to draw conclusions about the wine itself. The researchers processed the
+        textual data by combining a bag-of-words model with 100 topics generated from Latent Dirichlet Allocation and
+        100 clusters based on word embeddings from <a href="https://code.google.com/archive/p/word2vec/">Word2Vec</a>.
+        The experiment resulted in high F-scores for each predicted category. Price was predicted categorically using
+        ‘expensive’ and ‘cheap’ as the categories; however, the researchers mention that in the future it would be better
+        to predict price as a regression task. Thus, we are hoping to extend their work by predicting price and quality
+        as a regression task and by addressing the aforementioned questions.
       </p>
+
+      <h3><span class="glyphicon glyphicon-globe"></span> <a href="explore_data"> Explore the Data </a> </h3>
+
 
     </div>
   </div> <!-- row -->
@@ -63,6 +81,9 @@
 
 
 <script>
+// document.onload = function(){
+
+
 var map = L.map('wine_regions', {
     center: [36, -46],
     zoom: 3,
@@ -76,10 +97,20 @@ L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
 
 L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png').addTo(map);
 
+var markers = L.markerClusterGroup();
+
+{% for winery in wineries %}
+  var marker = L.marker([ {{ winery.latitude }}, {{ winery.longitude }} ]);
+  marker.bindPopup("<b>{{ winery.winery }}</b><hr>{{ winery.province }}, {{ winery.country }}<br>");
+  markers.addLayer(marker);
+{% endfor %}
+
+map.addLayer(markers);
+
 //L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   //  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 //}).addTo(map);
-
+// }
 </script>
 
 {% endblock %}

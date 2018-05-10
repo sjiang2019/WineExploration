@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center"
+     style='background-image: url("{% static "wine_overlay.jpg" %}");'
+>
+  <div class="container">
+      <h1>
+        <span style="margin:0px;">Explore the Data</span>
+    </h1>
+    <p>
+      We use the Kaggle Wine Reviews dataset to explore whether we can use textual descriptions of wines to predict price and quality.
+      Here's some of the initial exploratory analysis we performed on our dataset.
+    </p>
+      <!--<h1 style="font-family:times;">Sommel<b><i>AI</i></b></h1>-->
+  </div>
+</div>
+
+<div class="container">
+    <hr>
+  <div class="row">
+    <div class="col-md-6">
+        <h3> Points Distribution </h3>
+    <img src="{% static 'points_hist.png' %}" alt="Points Distribution">
+
+    </div>
+    <div class="col-md-6">
+      <h3> Price Distribution </h3>
+        <img src="{% static 'price_hist.png' %}" alt="Price Distribution">
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3> Points by Country </h3>
+        <img src="{% static 'points_by_country.png' %}" alt="Points by Country">
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3> Median Price by Country </h3>
+        <img src="{% static 'price_by_country.png' %}" alt="Price by Country">
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3> Mean Price by Variety </h3>
+        <img src="{% static 'price_by_variety.png' %}" alt="Price by Variety">
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-md-4">
+      <h3> Textual Features </h3>
+        <img src="{% static 'wine.png' %}" alt="Word Cloud">
+    </div>
+
+    <div class="col-md-8">
+      <h3> Topic Modeling using Latent Dirichlet allocation </h3>
+        <ol>
+          <li> wine tannins fruit years rich structure wood age ripe firm </li>
+          <li> finishes easy pretty alcohol drinking pie taste sweet like lot </li>
+          <li> great wine fruit vineyard freshness wines vintage shows elegance grapes </li>
+          <li> blackberry cabernet black chocolate blend tannins flavors sauvignon cherry merlot </li>
+          <li> flavors finish palate aromas fruit bit nose berry plum herbal </li>
+          <li> citrus apple flavors finish aromas wine white fruit fresh green </li>
+          <li> aromas spice cherry wine red berry fruit notes palate black </li>
+          <li> wine acidity red mouthfeel fresh ripe fruit soft fruity flavors </li>
+          <li> flavors wine imported acidity vanilla sweet oak chardonnay rich style </li>
+          <li> flavors dry cherry cherries pinot little wine oak good cola </li>
+
+        </ol>
+    </div>
+  </div> <!-- row -->
+
+</div>
+
+{% endblock %}
