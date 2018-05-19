@@ -12,7 +12,7 @@ def index(request):
     #logger = logging.getLogger()
 
     wineries = []
-    with open("./hello/data/winery_location.csv") as f:
+    with open("./hello/data/winery_location 2.csv") as f:
         reader = csv.reader(f)
         for row in reader:
             try:
