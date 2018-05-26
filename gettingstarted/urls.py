@@ -10,5 +10,6 @@ import hello.views
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^explore_data$', hello.views.explore_data, name='explore_data'),
+    url(r'^predict$', hello.views.predict, name='predict'),
     path('admin/', admin.site.urls),
 ]

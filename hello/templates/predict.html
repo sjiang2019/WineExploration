@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<style>
+    textarea {
+        outline: none;
+        resize: none;
+        border: 3px solid #ccc;
+        border-radius: 5px;
+        width: 500px;
+        height: 300px;
+    }
+    textarea:focus{
+        border: 3px solid #555;
+    }
+    input[type=submit] {
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        background-color: #9d6967;
+
+    }
+    input[type=submit]:hover{
+        background-color: #854442;
+
+    }
+</style>
+
+<div class="jumbotron text-center"
+     style='background-image: url("{% static "wine_quality_overlay.jpg" %}");'
+>
+  <div class="container">
+      <h1>
+        <span style="margin:0px;">Prediction Models</span>
+    </h1>
+    <p>
+      Use textual descriptions to predict the price and quality of wine.
+    </p>
+      <!--<h1 style="font-family:times;">Sommel<b><i>AI</i></b></h1>-->
+  </div>
+</div>
+
+<div class="container">
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+      Wine Description:<br><br>
+    {{ form.desc }}
+      <br><br>
+      <input type="submit" value="Submit">
+    <!--
+    Wine Description:<br><br>
+    <textarea type="text" placeholder="Enter wine description..." name="description"></textarea><br>
+    <input type="submit" value="Submit">
+-->
+  </form>
+    <br><br>
+  <h3>Predicted Price: {{ price_score }}</h3>
+    <h3>Predicted Quality: {{ qual_score }}</h3>
+
+
+
+</div>
+
+{% endblock %}
