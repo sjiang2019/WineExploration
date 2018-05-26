@@ -10,6 +10,8 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 scikit-learn = "*"
+numpy = "*"
+scipy = "*"
 
 
 [requires]
